@@ -8,6 +8,7 @@
 import Spring
 
 struct Animation {
+
     var randomForce: Double {
         Double.random(in: 0.30...1.5)
     }

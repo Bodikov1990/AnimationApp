@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     private var randomDuration: Double {
         random.randomDuration
     }
-    private var randomValues = Animation.getAnimation()
     
     @IBAction func animationButton(_ sender: SpringButton) {
         
