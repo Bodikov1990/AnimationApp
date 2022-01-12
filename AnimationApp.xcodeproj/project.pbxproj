@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12134E49278EE3F0008E873B /* AnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12134E48278EE3F0008E873B /* AnimationModel.swift */; };
 		12745A9B278D765400BB2577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745A9A278D765400BB2577 /* AppDelegate.swift */; };
 		12745A9D278D765400BB2577 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745A9C278D765400BB2577 /* SceneDelegate.swift */; };
 		12745A9F278D765400BB2577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12745A9E278D765400BB2577 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12134E48278EE3F0008E873B /* AnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationModel.swift; sourceTree = "<group>"; };
 		12745A97278D765400BB2577 /* AnimationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12745A9A278D765400BB2577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12745A9C278D765400BB2577 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12134E43278EE386008E873B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				12745A9A278D765400BB2577 /* AppDelegate.swift */,
+				12745A9C278D765400BB2577 /* SceneDelegate.swift */,
+				12745AA8278D765500BB2577 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		12134E44278EE39C008E873B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				12745A9E278D765400BB2577 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		12134E45278EE3AA008E873B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				12745AA0278D765400BB2577 /* Main.storyboard */,
+				12745AA5278D765500BB2577 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		12134E46278EE3B7008E873B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12745AA3278D765500BB2577 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		12134E47278EE3D0008E873B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				12134E48278EE3F0008E873B /* AnimationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		12745A8E278D765400BB2577 = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +108,11 @@
 		12745A99278D765400BB2577 /* AnimationApp */ = {
 			isa = PBXGroup;
 			children = (
-				12745A9A278D765400BB2577 /* AppDelegate.swift */,
-				12745A9C278D765400BB2577 /* SceneDelegate.swift */,
-				12745A9E278D765400BB2577 /* ViewController.swift */,
-				12745AA0278D765400BB2577 /* Main.storyboard */,
-				12745AA3278D765500BB2577 /* Assets.xcassets */,
-				12745AA5278D765500BB2577 /* LaunchScreen.storyboard */,
-				12745AA8278D765500BB2577 /* Info.plist */,
+				12134E47278EE3D0008E873B /* Models */,
+				12134E44278EE39C008E873B /* Controllers */,
+				12134E43278EE386008E873B /* SupportFiles */,
+				12134E45278EE3AA008E873B /* Storyboards */,
+				12134E46278EE3B7008E873B /* Resources */,
 			);
 			path = AnimationApp;
 			sourceTree = "<group>";
@@ -80,7 +123,6 @@
 				E38B4289EAB5F9703F45A454 /* Pods-AnimationApp.debug.xcconfig */,
 				E25142F3B475298363EBECA2 /* Pods-AnimationApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12134E49278EE3F0008E873B /* AnimationModel.swift in Sources */,
 				12745A9F278D765400BB2577 /* ViewController.swift in Sources */,
 				12745A9B278D765400BB2577 /* AppDelegate.swift in Sources */,
 				12745A9D278D765400BB2577 /* SceneDelegate.swift in Sources */,
@@ -360,7 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimationApp/Info.plist;
+				INFOPLIST_FILE = AnimationApp/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -388,7 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimationApp/Info.plist;
+				INFOPLIST_FILE = AnimationApp/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

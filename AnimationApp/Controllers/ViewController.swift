@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         switch currenAnimation {
             
         case .slideLeft:
-            setAnimations(for: "slideLeft", for: "easeInOut")
+            setAnimationsEnum(for: .slideLeft, for: .easeInOut)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .squeezeLeft
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run squeezeLeft", for: .normal)
         case .squeezeLeft:
-            setAnimations(for: "squeezeLeft", for: "easeInOutQuad")
+            setAnimationsEnum(for: .squeezeLeft, for: .easeInOutQuad)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .zoomOut
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run zoomOut", for: .normal)
         case .zoomOut:
-            setAnimations(for: "zoomOut", for: "easeOutQuart")
+            setAnimationsEnum(for: .zoomOut, for: .easeOutQuart)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .fall
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run fall", for: .normal)
         case .fall:
-            setAnimations(for: "fall", for: "easeInOutExpo")
+            setAnimationsEnum(for: .fall, for: .easeInOutExpo)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .shake
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run shake", for: .normal)
         case .shake:
-            setAnimations(for: "shake", for: "easeInSine")
+            setAnimationsEnum(for: .shake, for: .easeInSine)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .pop
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run pop", for: .normal)
         case .pop:
-            setAnimations(for: "pop", for: "easeInOutBack")
+            setAnimationsEnum(for: .pop, for: .easeInOutBack)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .flipX
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
             
             runButton.setTitle("Run flipX", for: .normal)
         case .flipX:
-            setAnimations(for: "flipX", for: "easeInCubic")
+            setAnimationsEnum(for: .flipX, for: .easeInCubic)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .slideLeft
@@ -116,6 +116,12 @@ class ViewController: UIViewController {
         mainAnimationView.curve = curve
         mainAnimationView.force = randomForce
         mainAnimationView.duration = randomDuration
+        mainAnimationView.animate()
+    }
+    
+    private func setAnimationsEnum(for amiation: CurrentAnimation, for curve: CurrentCurve) {
+        mainAnimationView.animation = amiation.rawValue
+        mainAnimationView.curve = curve.rawValue
         mainAnimationView.animate()
     }
     
