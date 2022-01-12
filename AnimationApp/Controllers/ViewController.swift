@@ -7,30 +7,8 @@
 
 import Spring
 
-enum CurrentAnimation: String {
-    case slideLeft = "slideLeft"
-    case squeezeLeft = "squeezeLeft"
-    case zoomOut = "zoomOut"
-    case fall = "fall"
-    case shake = "shake"
-    case pop = "pop"
-    case flipX = "flipX"
-}
-
-enum CurrentCurve: String {
-    case easeInOut = "easeInOut"
-    case easeInOutQuad = "easeInOutQuad"
-    case easeOutQuart = "easeOutQuart"
-    case easeInOutExpo = "easeInOutExpo"
-    case easeInSine = "easeInSine"
-    case easeInOutBack = "easeInOutBack"
-    case easeInCubic = "easeInCubic"
-}
-
-
 class ViewController: UIViewController {
 
-    
     @IBOutlet weak var mainAnimationView: SpringView!
     
     @IBOutlet weak var presetLabel: UILabel!
@@ -42,11 +20,20 @@ class ViewController: UIViewController {
     
     private var currenAnimation = CurrentAnimation.fall
     private var currentCurve = CurrentCurve.easeInOutExpo
-    private var randomForce = Double.random(in: 0.30...1.0)
-    private var randomDuration = Double.random(in: 0.50...1.5)
+    
+    var random = Animation.getAnimation()
+    
+    private var randomForce: Double {
+        random.randomForce
+    }
+    private var randomDuration: Double {
+        random.randomDuration
+    }
+    private var randomValues = Animation.getAnimation()
     
     @IBAction func animationButton(_ sender: SpringButton) {
         
+        setRandomValues()
         sender.animation = "squeeze"
         sender.animate()
         
@@ -58,16 +45,14 @@ class ViewController: UIViewController {
             
             currenAnimation = .squeezeLeft
             currentCurve = .easeInOutQuad
-            
-            runButton.setTitle("Run squeezeLeft", for: .normal)
+    
         case .squeezeLeft:
             setAnimationsEnum(for: .squeezeLeft, for: .easeInOutQuad)
             getCurrentStatusAnimtaions()
             
             currenAnimation = .zoomOut
             currentCurve = .easeOutQuart
-            
-            runButton.setTitle("Run zoomOut", for: .normal)
+        
         case .zoomOut:
             setAnimationsEnum(for: .zoomOut, for: .easeOutQuart)
             getCurrentStatusAnimtaions()
@@ -75,7 +60,6 @@ class ViewController: UIViewController {
             currenAnimation = .fall
             currentCurve = .easeInOutExpo
             
-            runButton.setTitle("Run fall", for: .normal)
         case .fall:
             setAnimationsEnum(for: .fall, for: .easeInOutExpo)
             getCurrentStatusAnimtaions()
@@ -83,7 +67,6 @@ class ViewController: UIViewController {
             currenAnimation = .shake
             currentCurve = .easeInSine
             
-            runButton.setTitle("Run shake", for: .normal)
         case .shake:
             setAnimationsEnum(for: .shake, for: .easeInSine)
             getCurrentStatusAnimtaions()
@@ -91,7 +74,6 @@ class ViewController: UIViewController {
             currenAnimation = .pop
             currentCurve = .easeInOutBack
             
-            runButton.setTitle("Run pop", for: .normal)
         case .pop:
             setAnimationsEnum(for: .pop, for: .easeInOutBack)
             getCurrentStatusAnimtaions()
@@ -99,7 +81,6 @@ class ViewController: UIViewController {
             currenAnimation = .flipX
             currentCurve = .easeInCubic
             
-            runButton.setTitle("Run flipX", for: .normal)
         case .flipX:
             setAnimationsEnum(for: .flipX, for: .easeInCubic)
             getCurrentStatusAnimtaions()
@@ -107,21 +88,22 @@ class ViewController: UIViewController {
             currenAnimation = .slideLeft
             currentCurve = .easeInOut
             
-            runButton.setTitle("Run slideLeft", for: .normal)
+
         }
+        runButton.setTitle("Run \(currenAnimation)", for: .normal)
     }
     
-    private func setAnimations(for animation: String, for curve: String) {
-        mainAnimationView.animation = animation
-        mainAnimationView.curve = curve
-        mainAnimationView.force = randomForce
-        mainAnimationView.duration = randomDuration
-        mainAnimationView.animate()
-    }
+    
     
     private func setAnimationsEnum(for amiation: CurrentAnimation, for curve: CurrentCurve) {
         mainAnimationView.animation = amiation.rawValue
         mainAnimationView.curve = curve.rawValue
+        mainAnimationView.animate()
+    }
+    
+    private func setRandomValues() {
+        mainAnimationView.force = randomForce
+        mainAnimationView.duration = randomDuration
         mainAnimationView.animate()
     }
     
