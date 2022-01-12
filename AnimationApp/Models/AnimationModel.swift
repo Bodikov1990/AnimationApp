@@ -8,11 +8,15 @@
 import Spring
 
 struct Animation {
-    var randomForce: Double
-    var randomDuration: Double
+    var randomForce: Double {
+        Double.random(in: 0.30...1.5)
+    }
+    var randomDuration: Double {
+        Double.random(in: 0.30...1.5)
+    }
 
     static func getAnimation() -> Animation {
-        Animation(randomForce: Double.random(in: 0.30...1.5), randomDuration: Double.random(in: 0.30...1.5))
+       Animation()
     }
 }
 

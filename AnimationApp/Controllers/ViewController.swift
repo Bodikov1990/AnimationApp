@@ -8,7 +8,7 @@
 import Spring
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var mainAnimationView: SpringView!
     
     @IBOutlet weak var presetLabel: UILabel!
@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     @IBAction func animationButton(_ sender: SpringButton) {
         
         setRandomValues()
+        getCurrentStatusAnimtaions()
         sender.animation = "squeeze"
         sender.animate()
         
@@ -41,59 +42,49 @@ class ViewController: UIViewController {
             
         case .slideLeft:
             setAnimationsEnum(for: .slideLeft, for: .easeInOut)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .squeezeLeft
             currentCurve = .easeInOutQuad
-    
+            
         case .squeezeLeft:
             setAnimationsEnum(for: .squeezeLeft, for: .easeInOutQuad)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .zoomOut
             currentCurve = .easeOutQuart
-        
+            
         case .zoomOut:
             setAnimationsEnum(for: .zoomOut, for: .easeOutQuart)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .fall
             currentCurve = .easeInOutExpo
             
         case .fall:
             setAnimationsEnum(for: .fall, for: .easeInOutExpo)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .shake
             currentCurve = .easeInSine
             
         case .shake:
             setAnimationsEnum(for: .shake, for: .easeInSine)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .pop
             currentCurve = .easeInOutBack
             
         case .pop:
             setAnimationsEnum(for: .pop, for: .easeInOutBack)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .flipX
             currentCurve = .easeInCubic
             
         case .flipX:
             setAnimationsEnum(for: .flipX, for: .easeInCubic)
-            getCurrentStatusAnimtaions()
             
             currenAnimation = .slideLeft
             currentCurve = .easeInOut
-            
-
         }
+        
         runButton.setTitle("Run \(currenAnimation)", for: .normal)
     }
-    
-    
     
     private func setAnimationsEnum(for amiation: CurrentAnimation, for curve: CurrentCurve) {
         mainAnimationView.animation = amiation.rawValue
